@@ -1,0 +1,65 @@
+version: 2
+jobs:
+  - checkout:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: ~/hugo
+    steps:
+      - checkout
+      - save_cache:
+        key: hugo-cache-{{ epoch }}
+        path:
+          - ~/hugo
+  - build:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: ~/hugo
+    steps:
+      - restore_cache:
+        key: hugo-cache
+      - run:
+        command: |
+          git submodule sync
+          git submodule update --init
+          go get github.com/gohugoio/hugo
+          git clone https://github.com/k-ymmt/k-ymmt.github.io public
+          rm -rf public/*
+          sudo cp /usr/share/zoneinfo/Japan /etc/localtime
+          hugo
+      - save_cache:
+        key: hugo-cache-public-{{ epoch }}
+        paths:
+          - ~/hugo/public
+  - deploy:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: ~/hugo/public
+    steps:
+      - restore_cache:
+        key: hugo-cache-public
+      - run:
+        command: |
+          git config --global user.name "Kazuki Yamamoto"
+          git config --global user.email "account@kymmt.net"
+          git add --all
+          git commit -m "update article"
+          git push git@github.com:k-ymmt/k-ymmt.github.io
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - checkout:
+        filters:
+          branches:
+            only: generator
+      - build:
+        requires:
+          - checkout
+      - deploy:
+        filters:
+          branches:
+            only: master
+        requires:
+          - build
+
