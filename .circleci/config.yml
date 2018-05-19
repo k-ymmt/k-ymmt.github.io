@@ -49,10 +49,7 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - checkout:
-        filters:
-          branches:
-            only: generator
+      - checkout
       - build:
         requires:
           - checkout
