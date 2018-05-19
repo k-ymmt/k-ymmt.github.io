@@ -14,3 +14,6 @@ class Foo {
   let foo = null
 }
 ```
+
+- Sample
+- Sample2
