@@ -35,11 +35,13 @@ jobs:
       - image: circleci/golang:latest
     working_directory: ~/hugo/public
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "f5:5c:43:27:4c:8e:c6:c4:44:8c:04:a6:40:03:bf:da"
       - restore_cache:
           key: hugo-cache-public
       - run:
           command: |
-            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config   
             git config --global user.name "Kazuki Yamamoto"
             git config --global user.email "account@kymmt.net"
             git add --all
