@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://example.org/"
 languageCode = "ja-jp"
 DefaultContentLanguage = "ja"
 title = "Sleep-Driven Development"
