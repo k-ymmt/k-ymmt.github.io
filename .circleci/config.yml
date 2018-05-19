@@ -43,7 +43,7 @@ jobs:
             git config --global user.email "account@kymmt.net"
             git add --all
             git commit -m "update article"
-            git subtree push --prefix public/ git@github.com:k-ymmt/k-ymmt.github.io master
+            git push git@github.com:k-ymmt/k-ymmt.github.io 
 
 workflows:
   version: 2
