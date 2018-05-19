@@ -47,7 +47,7 @@ jobs:
             git config --global user.email "account@kymmt.net"
             git add --all
             git commit -m "update article"
-            git push git@github.com:k-ymmt/k-ymmt.github.
+            git push git@github.com:k-ymmt/k-ymmt.github.io.git
 
 workflows:
   version: 2
