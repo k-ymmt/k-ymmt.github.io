@@ -8,7 +8,7 @@ jobs:
       - checkout
       - save_cache:
           key: hugo-cache-{{ epoch }}
-          path:
+          paths:
             - ~/hugo
   build:
     docker:
