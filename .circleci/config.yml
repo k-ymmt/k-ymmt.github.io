@@ -43,20 +43,20 @@ jobs:
             git config --global user.email "account@kymmt.net"
             git add --all
             git commit -m "update article"
-            git push git@github.com:k-ymmt/k-ymmt.github.io
+            git subtree push --prefix public/ git@github.com:k-ymmt/k-ymmt.github.io master
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - checkout
+      - checkout:
+          filters:
+            branches:
+              only: generator
       - build:
           requires:
             - checkout
       - deploy:
-          filters:
-            branches:
-              only: master
           requires:
             - build
 
