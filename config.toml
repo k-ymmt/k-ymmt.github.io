@@ -1,0 +1,34 @@
+baseURL = "http://example.org/"
+languageCode = "ja-jp"
+DefaultContentLanguage = "ja"
+title = "Sleep-Driven Development"
+theme = "beautifulhugo"
+hasCJKLanguage = true
+paginate = 10
+paginatePath = "page"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+
+[permalinks]
+  post = "/:filename"
+  code = "/:filename/"
+
+[author]
+  name = "Kazuki Yamamoto"
+  github = "k-ymmt"
+  twitter = "kymmt24"
+
+[params]
+subtitle = "睡眠の重要性!!睡眠の重要性!!"
+logo = "img/cat.png"
+
+useHLJS = true
+rss = true
+comments = true
+socialShare = true
+
+[[menu.main]]
+  name = "Home"
+  url = ""
