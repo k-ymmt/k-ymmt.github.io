@@ -51,12 +51,12 @@ workflows:
     jobs:
       - checkout
       - build:
-        requires:
-          - checkout
+          requires:
+            - checkout
       - deploy:
-        filters:
-          branches:
-            only: master
-        requires:
-          - build
+          filters:
+            branches:
+              only: master
+          requires:
+            - build
 
