@@ -43,7 +43,10 @@ jobs:
             git config --global user.email "account@kymmt.net"
             git add --all
             git commit -m "update article"
-            git push git@github.com:k-ymmt/k-ymmt.github.io 
+            git push git@github.com:k-ymmt/k-ymmt.github.
+add_ssh_keys:
+  fingerprints:
+    - "d7:aa:2b:db:fb:5f:9d:37:ae:37:e0:bc:f0:49:97:c8"
 
 workflows:
   version: 2
