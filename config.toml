@@ -26,6 +26,7 @@ logo = "img/cat.png"
 
 useHLJS = true
 rss = true
+rssuri = feed.xml
 comments = true
 socialShare = true
 
